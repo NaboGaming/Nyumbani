@@ -4,13 +4,36 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
 <title>Karibu NaboGaming BetPlace</title>
-<script defer type="module">import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";const firebaseConfig = {apiKey: "AIzaSyC_VKdV-KsIzUiOb7jFLsYXdTsuGkLiS-Q",authDomain: "register-71bde.firebaseapp.com",projectId: "register-71bde",storageBucket: "register-71bde.appspot.com",messagingSenderId: "412548441298",appId: "1:412548441298:web:e0fb2b6c5fbd4af7d0b90b"};const app = initializeApp(firebaseConfig);const auth = getAuth(app);const db = getFirestore(app);onAuthStateChanged(auth, (user) => {if (user) {updateUserProfile(user);const userDocRef = doc(db, "users", user.uid);const userDoc = {displayName: user.displayName,email: user.email,profilePicture: user.photoURL,};setDoc(userDocRef, userDoc, { merge: true }).then(() => {console.log("+");}).catch((error) => {console.error("?: ", error);});} else {displayPopup();}});function updateUserProfile(user) {const userName = user.displayName;const userEmail = user.email;const userProfilePicture = user.photoURL;document.getElementById("userName").textContent = userName;document.getElementById("userEmail").textContent = userEmail;document.getElementById("userProfilePicture").src = userProfilePicture;}function displayPopup() {var popup = document.getElementById('customPopup');popup.style.display = "block";}function closePopup() {var popup = document.getElementById('customPopup');popup.style.display = "none";}</script><style>.popup {display: none;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 9999;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);padding: 20px;width: 100vw;height: 300vw;}.popup-content {margin-top: 120vw;}</style>
+<!--<script defer type="module">import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";const firebaseConfig = {apiKey: "AIzaSyC_VKdV-KsIzUiOb7jFLsYXdTsuGkLiS-Q",authDomain: "register-71bde.firebaseapp.com",projectId: "register-71bde",storageBucket: "register-71bde.appspot.com",messagingSenderId: "412548441298",appId: "1:412548441298:web:e0fb2b6c5fbd4af7d0b90b"};const app = initializeApp(firebaseConfig);const auth = getAuth(app);const db = getFirestore(app);onAuthStateChanged(auth, (user) => {if (user) {updateUserProfile(user);const userDocRef = doc(db, "users", user.uid);const userDoc = {displayName: user.displayName,email: user.email,profilePicture: user.photoURL,};setDoc(userDocRef, userDoc, { merge: true }).then(() => {console.log("+");}).catch((error) => {console.error("?: ", error);});} else {displayPopup();}});function updateUserProfile(user) {const userName = user.displayName;const userEmail = user.email;const userProfilePicture = user.photoURL;document.getElementById("userName").textContent = userName;document.getElementById("userEmail").textContent = userEmail;document.getElementById("userProfilePicture").src = userProfilePicture;}function displayPopup() {var popup = document.getElementById('customPopup');popup.style.display = "block";}function closePopup() {var popup = document.getElementById('customPopup');popup.style.display = "none";}</script><style>.popup {display: none;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 9999;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);padding: 20px;width: 100vw;height: 300vw;}.popup-content {margin-top: 120vw;}</style>-->
 <link rel="stylesheet" type="text/css" href="bootstrap.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="bootstrap-icons.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+  .overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  z-index: 999;
+  transition: opacity 1s ease; /* Adding a smooth transition */
+}
+.popup {
+  margin-top: 40%;
+}
+.close-button {
+  cursor: pointer;
+}
 
+.close-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+</style>
 <link rel="manifest" href="_manifest.json">
 <meta id="theme-check" name="theme-color" content="black">
 <link rel="apple-touch-icon" sizes="180x180" href="images/icon-192x192.png"></head>
@@ -130,7 +153,7 @@ Matokeo Ya Michezo Na Matukio Yaliyopita na Yajayo.
 </div>
 <div class="card-overlay opacity-20" style="background-color: grey;"></div>
 <div class="card-bottom pb-3 px-3">
-<h3 class="color-white mb-1">DEBATE • PUBG MOBILE NA FREEFIRE LIPI KALI?!</h3>
+<h3 class="color-white mb-1">DEBATE • PUBG MOBILE NA FREEFIRE</h3>
 <p class="color-white mb-0 mt-n1 font-14">Hapa Tutakuja Kuona Nani Mshindi, Usikosee!!</p>
 </div>
 <div class="card-overlay bg-gradient-fade"></div>
@@ -364,6 +387,30 @@ Kubali Sasa Na Uweze Install App Ya NaboGaming.
 </div>
   </div>
 </div>
+ <div class="overlay" id="overlay">
+    <div class="popup" id="popup">
+      <div class="content">
+      <div class="card card-style rounded-s shadow-card shadow-card-xl" style="background-image: url(ff.webp);" data-card-height="450">
+          <div class="card-bottom text-center pb-3 px-3">
+<h3 class="color-white">FreeFire The Chaos Tarehe 03/03</h3>
+<p class="color-white opacity-70 mb-0 mt-n1">Tutafanya Battle Kali Ya Free Fire Chaos, Usikosee!!!</p>
+</div>
+       
+            	<div class="card-bottom float-end m-3">
+  <!--  <i style="margin-bottom: 0;" class="bi bi-play-fill float-end font-50 color-white"></i>
+-->	</div>
+<div class="card-bottom pb-3 px-3">
+
+</div>
+  <div class="card-top m-3">
+    <a href="#" id="closeButton" class="icon icon-xs rounded-s color-white float-end" style="margin-top: -50px; margin-right:-14px;display: none;"><i class="bi bi-x-circle-fill font-24"></i></a>
+  </div>
+  <div class="card-overlay bg-gradient-fade rounded-s"></div>
+</div>
+      
+      </div>
+    </div>
+  </div>
 <script>function startCountdown(expiryDate) {var deadline = new Date(expiryDate).getTime();var x = setInterval(function() {var now = new Date().getTime();var distance = deadline - now;var days = Math.floor(distance / (1000 * 60 * 60 * 24));var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));var seconds = Math.floor((distance % (1000 * 60)) / 1000);document.getElementById("timer").innerHTML = "<i class='bi bi-clock'></i> " + days + "d " + hours.toString().padStart(2, '0') + "h "+ minutes.toString().padStart(2, '0') + "m " +  seconds.toString().padStart(2, '0') + "s";if (distance < 0) {clearInterval(x);
 document.getElementById("timer").innerHTML ="<p class='text-center font-30 color-white' style='margin-right: 0;'>SHINDANO HILI LIMEANZA</p>";document.getElementById("jisajili").style.display = "none";document.getElementById("jisajili2").style.display = "none";document.getElementById("jisajili3").style.display = "none";}}, 1000);}var expiryDate = "2024-02-10T21:00:00";startCountdown(expiryDate);</script>
 <script>function handleOrientation(event) {var tiltLR = event.gamma;var tiltFB = event.beta;var gyroscopeDiv = document.getElementById('gyroscope-div');gyroscopeDiv.style.transform = `rotateX(${-tiltFB}deg) rotateY(${tiltLR}deg)`;}if (window.DeviceOrientationEvent) {window.addEventListener('deviceorientation', handleOrientation);} else {var gyroscopeDiv = document.getElementById('gyroscope-div');gyroscopeDiv.textContent = "";}</script>
@@ -371,5 +418,31 @@ document.getElementById("timer").innerHTML ="<p class='text-center font-30 color
 <script>function startCountdown(expiryDate) {var deadline = new Date(expiryDate).getTime();var x = setInterval(function() {var now = new Date().getTime();var distance = deadline - now;var days = Math.floor(distance / (1000 * 60 * 60 * 24));var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));var seconds = Math.floor((distance % (1000 * 60)) / 1000);document.getElementById("newtimer").innerHTML = "<i class='bi bi-clock'></i> " + days + "d " + hours.toString().padStart(2, '0') + "h "+ minutes.toString().padStart(2, '0') + "m " +  seconds.toString().padStart(2, '0') + "s";if (distance < 0) {clearInterval(x);
 document.getElementById("newtimer").innerHTML ="<p class='text-center font-30 color-white' style=' margin-bottom: 0;'>SHINDANO LINAANDALIWA</p>";document.getElementById("new").style.display = "none";document.getElementById("new2").style.display = "none";document.getElementById("new1").style.display = "none";}}, 1000);}var expiryDate = "2024-02-22T21:00:00";startCountdown(expiryDate);</script>
 <script src="custom.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const overlay = document.getElementById("overlay");
+  const popup = document.getElementById("popup");
+  const closeButton = document.getElementById("closeButton");
+
+  function openPopup() {
+    overlay.style.display = "block";
+  }
+
+  function showCloseButton() {
+    closeButton.style.display = "block";
+  }
+
+  // Show the popup after 3 seconds
+  setTimeout(openPopup, 3000);
+
+  // Show the close button after 10 seconds
+  setTimeout(showCloseButton, 10000);
+
+  // Close the popup when the close button is clicked
+  closeButton.addEventListener("click", function() {
+    overlay.style.display = "none";
+  });
+});
+</script>
 </body></html>
 <!--document.getElementById("timerafter").innerHTML ="<span class='color-black card-top bg-white' style='text-align: padding: 5px; center;'><marquee><span style='background-color: black; border-radius: 5px; padding: 3px;  color: white;'>HABARI  </span>&nbsp;    <span class='font-800 color-red-dark'>Shindano Hili Limekwisha</span>   <span class='color-black'> | Tegemea Matokeo Usiku Wa Tarehe 09-03-2024, Utayapata Kwenye Habari Na Kurasa Zetu Za Kijamii | Tunakutakia Siku Njema | Tufollow sasa <i class='bi bi-facebook'></i> <i class='bi bi-instagram'></i> <span class='color-green'> @nabogaming</span>  &nbsp; <i class='bi bi-whatsapp'></i><span class='color-green'> +25570000001</span>.</span></marquee></span>" + "";-->
