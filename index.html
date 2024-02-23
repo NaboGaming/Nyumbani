@@ -355,6 +355,10 @@ document.getElementById("timer").innerHTML ="<p class='text-center font-30 color
 <script src="bootstrap.min.js"></script>
 <script>function startCountdown(expiryDate) {var deadline = new Date(expiryDate).getTime();var x = setInterval(function() {var now = new Date().getTime();var distance = deadline - now;var days = Math.floor(distance / (1000 * 60 * 60 * 24));var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));var seconds = Math.floor((distance % (1000 * 60)) / 1000);document.getElementById("newtimer").innerHTML = "<i class='bi bi-clock'></i> " + days + "d " + hours.toString().padStart(2, '0') + "h "+ minutes.toString().padStart(2, '0') + "m " +  seconds.toString().padStart(2, '0') + "s";if (distance < 0) {clearInterval(x);
 document.getElementById("newtimer").innerHTML ="<p class='text-center font-30 color-white' style=' margin-bottom: 0;'>SHINDANO LIMEKWISHA</p>";document.getElementById("new").style.display = "none";document.getElementById("new2").style.display = "none";document.getElementById("new1").style.display = "none";}}, 1000);}var expiryDate = "2024-02-22T21:00:00";startCountdown(expiryDate);</script>
+<script>
+function autoRefresh() {location.reload();}const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
+setInterval(autoRefresh, oneDayInMilliseconds);
+</script>
 <script src="custom.js"></script>
 
 </body></html>
